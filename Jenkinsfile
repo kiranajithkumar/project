@@ -26,5 +26,11 @@ node {
             app.push("${env.BUILD_NUMBER}")
             app.push("latest")
         }
-    }
+     stage('Deploy image') {
+         def dockerRun = 'docker run -p 8085:8080 -d --name project kirankumarajith97/test2' 
+         sshagent(['poduction-server']) {
+            sh "ssh -o StrictHostKeyChecking=no root@ip-172.31.42.252 ${dockerRun}"
+    
+         }
+     }
 }
