@@ -27,9 +27,7 @@ node {
             app.push("latest")
         }
     }
-     stage('Deploy image') {
-         
-             sh "docker -H ssh://jenkins@172.31.40.30 run -d -p 8003:8080 kirankumarajith97/test3"
+     
         
-     }
+     
 }
