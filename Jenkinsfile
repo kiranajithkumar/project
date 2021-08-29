@@ -27,7 +27,7 @@ node {
             app.push("latest")
         }
      stage('Deploy image') {
-         def dockerRun = 'docker run -p 8080:8080 -d --name project kirankumarajith97/test2' 
+         def dockerRun = 'docker run -p 8003:8080 -d --name project kirankumarajith97/test2' 
          sshagent(['3.21.19.24']) {
             sh "ssh -o StrictHostKeyChecking=no ec2-user@172.31.19.66 ${dockerRun}"
     
