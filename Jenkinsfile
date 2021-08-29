@@ -9,7 +9,7 @@ node {
 
     stage('Build image') {
   
-       app = docker.build("kirankumarajith97/test2")
+       app = docker.build("kirankumarajith97/test3")
     }
 
     stage('Test image') {
@@ -26,6 +26,10 @@ node {
             app.push("${env.BUILD_NUMBER}")
             app.push("latest")
         }
-     
-}
+    }
+     stage('Deploy image') {
+         steps {
+             sh "docker -H ssh://ec2-user@172.31.40.30 run -d -p 8003:8080 kirankumarajith97/test3"
+         }
+     }
 }
