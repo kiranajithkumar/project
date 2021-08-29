@@ -29,7 +29,7 @@ node {
      stage('Deploy image') {
          def dockerRun = 'docker run -p 8080:8080 -d --name project kirankumarajith97/test2' 
          sshagent(['poduction-server']) {
-            sh "ssh -o StrictHostKeyChecking=no ec2-user@172.31.19.66 ${dockerRun}"
+            sh "ssh -o StrictHostKeyChecking=no ec2-user@172.31.21.196 ${dockerRun}"
     
          }
      }
