@@ -11,7 +11,7 @@ RUN apt-get update
 RUN apt-get install apache2 -y
 
 # Deploy Custom Web Page 
-COPY index.html /var/www/html/ 
+COPY template /var/www/html/ 
 
 # Excute Apache Application 
 CMD ["/usr/sbin/apache2ctl", "-D", "FOREGROUND"]
