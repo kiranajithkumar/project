@@ -16,7 +16,7 @@ node {
   
 
         app.inside {
-            sh 'echo "Tests passed1"'
+            sh 'echo "Tests passed2"'
         }
     }
 
